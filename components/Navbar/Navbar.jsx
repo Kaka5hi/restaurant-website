@@ -1,8 +1,18 @@
 import Link from "next/link";
+import * as motion from "motion/react-client";
 
 const Navbar = () => {
     return (
-        <div className="w-full sticky top-5">
+        <motion.div
+            className="w-full sticky top-5 z-10"
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0, 0.71, 0.2, 1.01],
+            }}
+        >
             <nav className=" bg-white backdrop-filter backdrop-blur-lg bg-opacity-5 px-10 py-3 max-w-7xl mx-auto flex items-center justify-between capitalize text-lg rounded-xl">
                 <Link
                     href={"/"}
@@ -18,7 +28,7 @@ const Navbar = () => {
                 </div>
                 <Link href={"/reservation"}>reservation</Link>
             </nav>
-        </div>
+        </motion.div>
     );
 };
 

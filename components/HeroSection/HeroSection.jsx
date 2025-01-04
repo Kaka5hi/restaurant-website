@@ -1,11 +1,21 @@
 import Image from "next/image";
 import heroImg from "@/public/hero.png";
 import { nothingYouCouldDo } from "@/styles/font";
+import * as motion from "motion/react-client";
 
 const HeroSection = () => {
     return (
         <main className="flex items-center justify-between max-w-4xl mx-auto my-5 p-5">
-            <div className="h-[550px] w-[550px] rounded-full overflow-hidden">
+            <motion.div
+                className="h-[550px] w-[550px] rounded-full overflow-hidden"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                    duration: 0.8,
+                    delay: 0.5,
+                }}
+                viewport={{ once: true }}
+            >
                 <Image
                     src={heroImg}
                     alt="Hero Image"
@@ -15,8 +25,17 @@ const HeroSection = () => {
                     height={550}
                     width={550}
                 />
-            </div>
-            <div className="text-center space-y-5">
+            </motion.div>
+            <motion.div
+                className="text-center space-y-5"
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                    duration: 0.8,
+                    delay: 0.5,
+                }}
+                viewport={{ once: true }}
+            >
                 <h1
                     className={`${nothingYouCouldDo.className} text-4xl text-orange-300 capitalize`}
                 >
@@ -26,7 +45,7 @@ const HeroSection = () => {
                     <span className="text-7xl font-bold">grand</span>
                     <span className="text-4xl leading-3">restaurant</span>
                 </p>
-            </div>
+            </motion.div>
         </main>
     );
 };
