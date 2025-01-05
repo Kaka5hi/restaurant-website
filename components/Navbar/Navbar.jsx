@@ -16,10 +16,10 @@ const Navbar = () => {
             <nav className=" bg-white backdrop-filter backdrop-blur-lg bg-opacity-5 px-10 py-3 max-w-7xl mx-auto flex items-center justify-between capitalize text-lg rounded-xl">
                 <Link
                     href={"/"}
-                    className="flex items-center flex-col uppercase font-bold"
+                    className="flex items-center flex-col uppercase"
                 >
-                    <span className="text-4xl  font-bold">grand</span>
-                    <span className="leading-3">restaurant</span>
+                    <span className="text-4xl font-bold">grand</span>
+                    <span className="leading-[0.5rem]">restaurant</span>
                 </Link>
                 <div className="flex items-center justify-between gap-10 ">
                     <Link href={"/about"}>about</Link>

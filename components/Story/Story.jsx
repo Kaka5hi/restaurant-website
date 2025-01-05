@@ -1,72 +1,114 @@
+import Ambience from "@/public/ambience.jpg";
+import ChefPortrait from "@/public/chef_portrait.jpg";
+import Philosophy from "@/public/philosophy.jpg";
+import Image from "next/image";
 import { nothingYouCouldDo } from "@/styles/font";
 import * as motion from "motion/react-client";
+import Signature from "./Signature";
+
+const storyData = [
+    {
+        heading: "philosophy",
+        subhead: "chef",
+        desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi exercitation, photo booth.",
+        photo: Philosophy,
+        sign: "",
+    },
+    {
+        heading: "restaurant",
+        subhead: "check out",
+        desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.",
+        photo: Ambience,
+        sign: "",
+    },
+    {
+        heading: "chef",
+        subhead: "meet our",
+        desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi exercitation, photo booth.",
+        photo: ChefPortrait,
+        sign: "john phillipo",
+    },
+];
+
+const fadeInLeftVar = {
+    initial: {
+        opacity: 0,
+        x: -200,
+    },
+    animate: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 1,
+            ease: "easeInOut",
+        },
+    },
+};
+const fadeInRightVar = {
+    initial: {
+        opacity: 0,
+        x: 200,
+    },
+    animate: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.5,
+        },
+    },
+};
 
 const Story = () => {
     return (
-        <div className="max-w-4xl container mx-auto my-20 p-5">
-            <div className="space-y-10">
-                <div className="flex flex-col items-center justify-center gap-1">
-                    <span
-                        className={`${nothingYouCouldDo.className} capitalize text-4xl text-orange-300`}
+        <section className="max-w-7xl mx-auto my-20 space-y-20 flex flex-col items-center">
+            {storyData.map((item, index) => {
+                return (
+                    <div
+                        key={index}
+                        className={`max-w-5xl flex ${
+                            index % 2 !== 0 && "flex-row-reverse"
+                        } items-center justify-center gap-10`}
                     >
-                        discover
-                    </span>
-                    <span className="uppercase text-6xl font-bold">
-                        our story
-                    </span>
-                </div>
-
-                <motion.section
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ amount: 0.4, once: true }}
-                >
-                    <article>
-                        <p className="text-2xl">
-                            “Cooking is like fashion. Always, I like to try to
-                            change. If I'm traveling in a different country - to
-                            Australia, the Bahamas, Budapest, Moscow - and I see
-                            a new ingredient, I like to try it in a new dish”
-                        </p>
-                    </article>
-                </motion.section>
-
-                <section>
-                    <article className="space-y-10 text-xl">
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ amount: 0.4, once: true }}
+                        <motion.article
+                            className="w-[400] h-[550] object-cover overflow-hidden rounded-lg"
+                            variants={fadeInLeftVar}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ amount: 0.5, once: true }}
                         >
-                            Exercitation photo booth stumptown tote bag Banksy,
-                            elit small batch freegan sed. Craft beer elit seitan
-                            exercitation, photo booth et 8-bit kale chips
-                            proident chillwave deep v laborum. Aliquip veniam
-                            delectus, Marfa eiusmod Pinterest in do umami
-                            readymade swag. Selfies iPhone Kickstarter, drinking
-                            vinegar jean vinegar stumptown yr pop-up artisan
-                            sunt. Craft beer elit seitan exercitation, photo
-                            booth
-                        </motion.p>
-
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ amount: 0.4, once: true }}
+                            <Image
+                                src={item.photo}
+                                placeholder="blur"
+                                width={400}
+                                height={550}
+                                alt={item.photo}
+                                className="w-full h-full object-cover"
+                            />
+                        </motion.article>
+                        <motion.article
+                            className="text-center space-y-2"
+                            variants={fadeInRightVar}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{ amount: 0.5, once: true }}
                         >
-                            Meh synth Schlitz, tempor duis single-origin coffee
-                            ea next level ethnic fingerstache fanny pack
-                            nostrud. Photo booth anim 8-bit hella, PBR 3 wolf
-                            moon beard Helvetica. Salvia esse nihil, flexitarian
-                            Truffaut synth art party deep v chillwave. Seitan
-                            High Life reprehenderit consectetur cupidatat kogi.
-                            Et leggings fanny pack, elit bespoke vinyl art party
-                            Pitchfork selfies master cleanse
-                        </motion.p>
-                    </article>
-                </section>
-            </div>
-        </div>
+                            <span
+                                className={`${nothingYouCouldDo.className} text-orange-300 text-4xl capitalize`}
+                            >
+                                {item.subhead}
+                            </span>
+                            <h2 className="uppercase text-6xl font-bold">
+                                {item.heading}
+                            </h2>
+                            <p className="text-lg max-w-lg ">{item.desc}</p>
+                            {item?.sign && <Signature name={item?.sign} />}
+                        </motion.article>
+                    </div>
+                );
+            })}
+        </section>
     );
 };
 
