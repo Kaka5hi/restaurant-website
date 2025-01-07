@@ -1,5 +1,4 @@
 import { mrsSaintDelafield } from "@/styles/font";
-import React from "react";
 
 const Signature = ({ name }) => {
     return (

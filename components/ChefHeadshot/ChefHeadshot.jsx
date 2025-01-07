@@ -33,7 +33,7 @@ const fadeInVar = {
         opacity: 1,
         y: 0,
         transition: {
-            delay: 0.5 * index,
+            delay: 0.4 * index,
             ease: "linear",
             duration: 0.4,
         },
@@ -55,8 +55,10 @@ const ChefHeadshot = () => {
                         custom={index}
                     >
                         <motion.div
-                            className="w-[400] h-[500] object-cover grayscale rounded-lg overflow-hidden"
+                            className="w-[400] h-[500] object-cover rounded-lg overflow-hidden"
+                            initial={{ filter: "grayscale(1)" }}
                             whileHover={{
+                                filter: "grayscale(0)",
                                 height: 450,
                                 transition: { duration: 0.2 },
                             }}
