@@ -16,7 +16,6 @@ const Banner = ({ img, title, subtitle }) => {
                         ease: "backOut",
                     },
                 }}
-                viewport={{ once: true }}
             >
                 <Image
                     className="w-full h-[500px] object-cover"

@@ -66,8 +66,7 @@ const menuData = [
 const Page = () => {
     return (
         <div className="space-y-20 pb-10 mb-10 ">
-            <Banner img={menuBanner} title="our menu" subtitle="check out" />
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto my-20">
                 <section className="space-y-20 text-center text-white">
                     <blockquote className="text-2xl  max-w-4xl mx-auto font-semibold">
                         “You can put the greatest seafood restaurant next to an
@@ -86,16 +85,14 @@ const Page = () => {
                             Sat - Sun 11:30am - 10pm
                         </span>
                     </div>
-
-                    <article className="space-y-10">
-                        {menuData.map((item, index) => {
-                            return (
-                                <Menu key={index} item={item} index={index} />
-                            );
-                        })}
-                    </article>
                 </section>
             </div>
+            <Banner img={menuBanner} title="our menu" subtitle="check out" />
+            <article className="space-y-10">
+                {menuData.map((item, index) => {
+                    return <Menu key={index} item={item} index={index} />;
+                })}
+            </article>
             <BookingBanner />
         </div>
     );
