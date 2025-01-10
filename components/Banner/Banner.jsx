@@ -1,5 +1,4 @@
 import Image from "next/image";
-import aboutBanner from "@/public/about.jpg";
 import { nothingYouCouldDo } from "@/styles/font";
 import * as motion from "motion/react-client";
 
@@ -17,6 +16,7 @@ const Banner = ({ img, title, subtitle }) => {
                         ease: "backOut",
                     },
                 }}
+                viewport={{ once: true }}
             >
                 <Image
                     className="w-full h-[500px] object-cover"

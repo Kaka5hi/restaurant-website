@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={`${josefinSans.className}  antialiased`}>
                 <Navbar />
-                <div className="min-h-[70vh] mt-10">{children}</div>
+                <div className="mt-10">{children}</div>
                 <Footer />
             </body>
         </html>

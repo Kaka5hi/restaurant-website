@@ -24,9 +24,8 @@ const Navbar = () => {
                 <div className="flex items-center justify-between gap-10 ">
                     <Link href={"/about"}>about</Link>
                     <Link href={"/menu"}>menu</Link>
-                    <Link href={"/venue"}>event</Link>
+                    <Link href={"/reservation"}>reservation</Link>
                 </div>
-                <Link href={"/reservation"}>reservation</Link>
             </nav>
         </motion.div>
     );
