@@ -1,6 +1,21 @@
+import BookingBanner from "@/components/BookingBanner/BookingBanner";
+import * as motion from "motion/react-client";
+
 const Page = () => {
     return (
-        <div className="max-w-7xl mx-auto my-20 space-y-10">
+        <motion.div
+            className="max-w-7xl mx-auto my-20 space-y-10"
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1,
+                transition: {
+                    delay: 0.2,
+                    duration: 0.5,
+                    ease: "linear",
+                },
+            }}
+        >
+            <BookingBanner />
             <h1 className="text-center text-4xl uppercase ">Table Booking</h1>
             <div className=" max-w-xl mx-auto p-5 space-y-5">
                 <form className="space-y-5">
@@ -105,7 +120,7 @@ const Page = () => {
                     </button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
