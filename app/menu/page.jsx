@@ -65,7 +65,7 @@ const menuData = [
 
 const Page = () => {
     return (
-        <div className="space-y-20 pb-10 mb-10 ">
+        <div className="space-y-20 pb-10 my-10 ">
             <div className="max-w-7xl mx-auto my-20">
                 <section className="space-y-20 text-center text-white">
                     <blockquote className="text-2xl  max-w-4xl mx-auto font-semibold">

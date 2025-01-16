@@ -42,11 +42,11 @@ const fadeInVar = {
 
 const ChefHeadshot = () => {
     return (
-        <motion.div className="max-w-7xl mx-auto flex items-center justify-between">
+        <motion.div className="max-w-7xl mx-auto flex items-center flex-col gap-10 md:justify-between md:flex-row">
             {chefData.map((chef, index) => {
                 return (
                     <motion.div
-                        className="h-[600] overflow-hidden  flex flex-col justify-between"
+                        className="h-[500px] md:h-[600px] overflow-hidden flex flex-col justify-between"
                         key={index}
                         variants={fadeInVar}
                         initial="initial"
@@ -55,7 +55,7 @@ const ChefHeadshot = () => {
                         custom={index}
                     >
                         <motion.div
-                            className="w-[400] h-[500] object-cover rounded-lg overflow-hidden"
+                            className="w-[300px] h-[400px] md:w-[400px] md:h-[500px] object-cover rounded-lg overflow-hidden"
                             initial={{ filter: "grayscale(1)" }}
                             whileHover={{
                                 filter: "grayscale(0)",
@@ -65,8 +65,8 @@ const ChefHeadshot = () => {
                         >
                             <Image
                                 src={chef.photo}
-                                width={400}
-                                height={500}
+                                width="100%"
+                                height="auto"
                                 alt={chef.name}
                                 className="h-full w-full object-cover overflow-hidden cursor-pointer"
                                 placeholder="blur"

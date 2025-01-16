@@ -29,7 +29,7 @@ const storyData = [
 
 const Story = () => {
     return (
-        <section className="max-w-7xl mx-auto my-20 space-y-20 flex flex-col items-center">
+        <section className="max-w-7xl mx-auto my-20 space-y-20 flex flex-col items-center sm:px-5">
             {storyData.map((item, index) => {
                 return <SingleStory index={index} item={item} key={index} />;
             })}

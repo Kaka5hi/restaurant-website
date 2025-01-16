@@ -11,9 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${josefinSans.className}  antialiased`}>
+            <body className={`${josefinSans.className} antialiased h-full`}>
                 <Navbar />
-                <div className="mt-10">{children}</div>
+                {children}
                 <Footer />
             </body>
         </html>

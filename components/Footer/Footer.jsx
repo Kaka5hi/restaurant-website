@@ -5,7 +5,7 @@ import { FaXTwitter, FaInstagram } from "react-icons/fa6";
 const Footer = () => {
     return (
         <footer className="max-w-7xl mx-auto p-5 space-y-20">
-            <div className="flex items-center justify-between capitalize">
+            <div className="flex items-center justify-between gap-y-10 gap-x-5 capitalize flex-wrap">
                 <div>
                     <Link
                         href={"/"}

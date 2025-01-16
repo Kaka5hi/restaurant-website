@@ -17,7 +17,7 @@ const Page = () => {
         >
             <BookingBanner />
             <h1 className="text-center text-4xl uppercase ">Table Booking</h1>
-            <div className=" max-w-xl mx-auto p-5 space-y-5">
+            <div className=" max-w-xl mx-auto p-5 space-y-10">
                 <form className="space-y-5">
                     <div className="flex flex-col gap-1">
                         <label
@@ -115,7 +115,7 @@ const Page = () => {
                     </div>
                 </form>
                 <div className="text-center">
-                    <button className="border-transparent text-black bg-orange-300 capitalize px-4 py-2 rounded-[4px] text-lg font-bold hover:cursor-pointer">
+                    <button className="border-transparent capitalize px-4 py-2 rounded-[4px] text-3xl font-semibold hover:cursor-pointer hover:underline leading-none">
                         book now
                     </button>
                 </div>

@@ -3,79 +3,54 @@ import { nothingYouCouldDo } from "@/styles/font";
 import Image from "next/image";
 import Signature from "@/components/Story/Signature";
 
-const fadeInLeftVar = {
+const fadeIn = {
     initial: {
         opacity: 0,
-        x: -200,
     },
     animate: {
         opacity: 1,
-        x: 0,
         transition: {
             duration: 1,
             ease: "easeInOut",
-        },
-    },
-};
-const fadeInRightVar = {
-    initial: {
-        opacity: 0,
-        x: 200,
-    },
-    animate: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            duration: 1,
-            ease: "easeInOut",
-            delay: 0.5,
         },
     },
 };
 
 const SingleStory = ({ item, index }) => {
     return (
-        <div
+        <motion.div
             key={index}
-            className={`max-w-5xl flex ${
-                index % 2 !== 0 && "flex-row-reverse"
-            } items-center justify-center gap-10`}
+            className={`max-w-5xl flex items-center justify-center gap-10 flex-col-reverse md:flex-row ${
+                index % 2 !== 0 && "md:flex-row-reverse"
+            }`}
+            variants={fadeIn}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ amount: 0.4, once: true }}
         >
-            <motion.article
-                className="w-[400] h-[550] object-cover overflow-hidden rounded-lg"
-                variants={fadeInLeftVar}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ amount: 0.3, once: true }}
-            >
+            <article className=" w-[350px] h-[450px] lg:[400px] lg:[550px] object-cover overflow-hidden rounded-lg">
                 <Image
                     src={item?.photo}
                     placeholder="blur"
-                    width={400}
-                    height={550}
+                    width="100%"
+                    height="auto"
                     alt={item?.photo}
                     className="w-full h-full object-cover"
                 />
-            </motion.article>
-            <motion.article
-                className="text-center space-y-2"
-                variants={fadeInRightVar}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ amount: 0.3, once: true }}
-            >
+            </article>
+            <motion.article className="text-center space-y-2">
                 <span
                     className={`${nothingYouCouldDo.className} text-orange-300 text-4xl capitalize`}
                 >
                     {item?.subhead}
                 </span>
-                <h2 className="uppercase text-6xl font-bold">
+                <h2 className="uppercase text-4xl md:text-5xl lg:text-6xl font-bold">
                     {item?.heading}
                 </h2>
                 <p className="text-lg max-w-lg ">{item?.desc}</p>
                 {item?.sign && <Signature name={item?.sign} />}
             </motion.article>
-        </div>
+        </motion.div>
     );
 };
 

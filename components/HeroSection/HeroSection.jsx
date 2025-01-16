@@ -5,9 +5,9 @@ import * as motion from "motion/react-client";
 
 const HeroSection = () => {
     return (
-        <main className="flex items-center justify-between max-w-4xl mx-auto my-5 p-5">
+        <main className="flex items-center flex-col-reverse gap-5 md:flex-row md:justify-between max-w-4xl mx-auto my-5 p-5">
             <motion.div
-                className="h-[550px] w-[550px] rounded-full overflow-hidden"
+                className=" h-[350px] w-[350px] md:h-[550px] md:w-[550px] rounded-full overflow-hidden"
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -22,8 +22,8 @@ const HeroSection = () => {
                     className="h-full w-full object-cover"
                     placeholder="blur"
                     quality={80}
-                    height={550}
-                    width={550}
+                    height="auto"
+                    width="100%"
                 />
             </motion.div>
             <motion.div
