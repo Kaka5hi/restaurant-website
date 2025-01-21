@@ -4,7 +4,7 @@ import * as motion from "motion/react-client";
 const Page = () => {
     return (
         <motion.div
-            className="max-w-7xl mx-auto my-20 space-y-10"
+            className="max-w-7xl mx-auto mb-20 -mt-20 md:mt-0 space-y-10"
             initial={{ opacity: 0 }}
             animate={{
                 opacity: 1,

@@ -7,11 +7,19 @@ import * as motion from "motion/react-client";
 import { HiMenuAlt3 } from "react-icons/hi";
 import { MdOutlineClose } from "react-icons/md";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence } from "motion/react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+    const pathname = usePathname();
+
     const [showSidebar, setShowSidebar] = useState(false);
+
+    useEffect(() => {
+        setShowSidebar(false);
+    }, [pathname]);
+
     return (
         <motion.div
             className="w-full sticky top-5 z-10"
@@ -40,12 +48,12 @@ const Navbar = () => {
 
             {showSidebar ? (
                 <MdOutlineClose
-                    className="absolute right-5 bg-white text-black size-14 p-3 rounded-full cursor-pointer md:hidden"
+                    className="absolute right-5 top-0 bg-white text-black size-14 p-3 rounded-full cursor-pointer md:hidden"
                     onClick={() => setShowSidebar((prev) => !prev)}
                 />
             ) : (
                 <HiMenuAlt3
-                    className="absolute right-5 bg-white text-black size-14 p-3 rounded-full cursor-pointer md:hidden"
+                    className="absolute right-5 top-0 bg-white text-black size-14 p-3 rounded-full cursor-pointer md:hidden"
                     onClick={() => setShowSidebar((prev) => !prev)}
                 />
             )}
@@ -57,7 +65,43 @@ const Navbar = () => {
                         animate={{ width: "70%", opacity: 1 }}
                         exit={{ width: 0, opacity: 0, display: "none" }}
                     >
-                        <h1>sidebar</h1>
+                        <motion.div
+                            className=" h-full flex flex-col  gap-20"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                        >
+                            <Link
+                                href={"/"}
+                                className="flex items-center flex-col uppercase"
+                            >
+                                <span className="text-4xl font-bold">
+                                    grand
+                                </span>
+                                <span className="leading-[0.5rem]">
+                                    restaurant
+                                </span>
+                            </Link>
+                            <div className="flex flex-col items-start text-3xl uppercase ">
+                                <Link
+                                    className="border-b border-slate-400 p-3 w-full"
+                                    href={"/about"}
+                                >
+                                    about
+                                </Link>
+                                <Link
+                                    className="border-b border-slate-400 p-3 w-full"
+                                    href={"/menu"}
+                                >
+                                    menu
+                                </Link>
+                                <Link
+                                    className="border-b border-slate-400 p-3 w-full"
+                                    href={"/reservation"}
+                                >
+                                    reservation
+                                </Link>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

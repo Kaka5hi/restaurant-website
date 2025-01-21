@@ -36,7 +36,7 @@ const storyData = [
 
 const Page = () => {
     return (
-        <div className="space-y-20 pb-10 my-10">
+        <div className="space-y-20 pb-10 mb-10 -mt-10 md:mt-10">
             <Banner img={aboutBanner} title="about us" subtitle="discover" />
             <section className="max-w-7xl mx-auto my-20 space-y-20 flex flex-col items-center">
                 {storyData.map((item, index) => {
