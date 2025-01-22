@@ -48,28 +48,24 @@ const Navbar = () => {
 
             {showSidebar ? (
                 <MdOutlineClose
-                    className="absolute right-5 top-0 bg-white text-black size-14 p-3 rounded-full cursor-pointer md:hidden"
+                    className="absolute right-5 top-0 bg-white text-black size-14 p-3 rounded-full shadow-lg cursor-pointer md:hidden"
                     onClick={() => setShowSidebar((prev) => !prev)}
                 />
             ) : (
                 <HiMenuAlt3
-                    className="absolute right-5 top-0 bg-white text-black size-14 p-3 rounded-full cursor-pointer md:hidden"
+                    className="absolute right-5 top-0 bg-white text-black size-14 p-3 rounded-full shadow-lg cursor-pointer md:hidden"
                     onClick={() => setShowSidebar((prev) => !prev)}
                 />
             )}
             <AnimatePresence>
                 {showSidebar && (
                     <motion.div
-                        className=" absolute p-5 left-0 -top-5 bg-white backdrop-filter backdrop-blur-xl bg-opacity-5 h-screen w-auto md:hidden"
+                        className=" absolute p-5 left-0 -top-5 bg-black backdrop-filter backdrop-blur-xl bg-opacity-50 h-screen w-auto md:hidden"
                         initial={{ width: 0, opacity: 0 }}
                         animate={{ width: "70%", opacity: 1 }}
                         exit={{ width: 0, opacity: 0, display: "none" }}
                     >
-                        <motion.div
-                            className=" h-full flex flex-col  gap-20"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                        >
+                        <div className=" h-full space-y-16">
                             <Link
                                 href={"/"}
                                 className="flex items-center flex-col uppercase"
@@ -81,27 +77,44 @@ const Navbar = () => {
                                     restaurant
                                 </span>
                             </Link>
-                            <div className="flex flex-col items-start text-3xl uppercase ">
-                                <Link
-                                    className="border-b border-slate-400 p-3 w-full"
-                                    href={"/about"}
-                                >
+                            <div className="flex flex-col items-start text-2xl uppercase ">
+                                <Link className=" py-3 w-full" href={"/about"}>
                                     about
                                 </Link>
-                                <Link
-                                    className="border-b border-slate-400 p-3 w-full"
-                                    href={"/menu"}
-                                >
+                                <Link className=" py-3 w-full" href={"/menu"}>
                                     menu
                                 </Link>
                                 <Link
-                                    className="border-b border-slate-400 p-3 w-full"
+                                    className=" py-3 w-full"
                                     href={"/reservation"}
                                 >
                                     reservation
                                 </Link>
                             </div>
-                        </motion.div>
+                            <div className=" capitalize space-y-5">
+                                <div className="flex flex-col">
+                                    <span className="text-2xl ">
+                                        opening hours
+                                    </span>
+                                    <span className="text-orange-300">
+                                        mon - fri 11:30am - 8pm
+                                    </span>
+                                    <span className="text-orange-300">
+                                        sat - sun 11:30am - 10pm
+                                    </span>
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-2xl ">Location</span>
+                                    <span className="text-orange-300">
+                                        732/21 second street, machester king
+                                        street,
+                                    </span>
+                                    <span className="text-orange-300">
+                                        kingston united kingdom
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -30,7 +30,7 @@ const Banner = ({ img, title, subtitle }) => {
                     <motion.span
                         className={`${nothingYouCouldDo.className} text-4xl font-semibold`}
                         initial={{ opacity: 0, y: -10 }}
-                        whileInView={{
+                        animate={{
                             opacity: 1,
                             y: 0,
                             transition: {
@@ -46,7 +46,7 @@ const Banner = ({ img, title, subtitle }) => {
                     <motion.h1
                         className="text-7xl uppercase font-bold"
                         initial={{ opacity: 0, y: -10 }}
-                        whileInView={{
+                        animate={{
                             opacity: 1,
                             y: 0,
                             transition: {
