@@ -11,7 +11,8 @@ const BookingBanner = () => {
                 alt="Hero Image"
                 className="w-full h-full object-cover blur-[2px]"
                 placeholder="blur"
-                quality={100}
+                priority={true}
+                quality={60}
                 height="100%"
                 width="100%"
             />

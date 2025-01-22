@@ -24,6 +24,8 @@ const Banner = ({ img, title, subtitle }) => {
                     height={"auto"}
                     placeholder="blur"
                     alt="about"
+                    priority={true}
+                    quality={60}
                 />
                 <div className="absolute left-0 top-0 bg-black w-full h-full opacity-45"></div>
                 <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center capitalize flex-col">
