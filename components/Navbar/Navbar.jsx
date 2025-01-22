@@ -65,19 +65,11 @@ const Navbar = () => {
                         animate={{ width: "70%", opacity: 1 }}
                         exit={{ width: 0, opacity: 0, display: "none" }}
                     >
-                        <div className=" h-full space-y-16">
-                            <Link
-                                href={"/"}
-                                className="flex items-center flex-col uppercase"
-                            >
-                                <span className="text-4xl font-bold">
-                                    grand
-                                </span>
-                                <span className="leading-[0.5rem]">
-                                    restaurant
-                                </span>
-                            </Link>
+                        <div className=" h-full space-y-32">
                             <div className="flex flex-col items-start text-2xl uppercase ">
+                                <Link className=" py-3 w-full" href={"/"}>
+                                    home
+                                </Link>
                                 <Link className=" py-3 w-full" href={"/about"}>
                                     about
                                 </Link>
@@ -106,11 +98,13 @@ const Navbar = () => {
                                 <div className="flex flex-col">
                                     <span className="text-2xl ">Location</span>
                                     <span className="text-orange-300">
-                                        732/21 second street, machester king
-                                        street,
+                                        732/21 second street,
                                     </span>
                                     <span className="text-orange-300">
-                                        kingston united kingdom
+                                        machester king street, kingston
+                                    </span>
+                                    <span className="text-orange-300">
+                                        united kingdom
                                     </span>
                                 </div>
                             </div>
